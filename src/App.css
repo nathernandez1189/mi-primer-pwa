@@ -1,4 +1,3 @@
-/* Estilos generales */
 :root {
   font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.7;
@@ -12,7 +11,6 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Estilos del body */
 body {
   margin: 0;
   display: flex;
@@ -20,17 +18,17 @@ body {
   align-items: center;
   min-width: 320px;
   min-height: 100vh;
-  background-color: #0f0f0f; /* Fondo oscuro suave */
+  background-color: #0f0f0f;
+  padding: 0 1rem;
 }
 
-/* Contenedor principal de la calculadora */
 .calculadora-container {
   background-color: #252525;
   padding: 3rem;
   border-radius: 15px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
   text-align: center;
-  max-width: 500px;
+  max-width: 400px;
   margin: auto;
   transition: all 0.3s ease-in-out;
 }
@@ -39,11 +37,10 @@ body {
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7);
 }
 
-/* Título */
 h2 {
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   color: #61dafb;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   text-transform: uppercase;
   letter-spacing: 1.5px;
   border-bottom: 2px solid #61dafb;
@@ -53,7 +50,6 @@ h2 {
   margin-right: auto;
 }
 
-/* Sección de inputs */
 .inputs {
   display: flex;
   flex-direction: column;
@@ -69,13 +65,13 @@ h2 {
 
 .number-input label {
   color: #d1d1d1;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   margin-bottom: 0.8rem;
   font-weight: 500;
 }
 
 input {
-  padding: 1rem;
+  padding: 1rem; /* Tamaño de input optimizado para el tacto */
   font-size: 1.3rem;
   width: 100%;
   border: 3px solid #646cff;
@@ -85,6 +81,11 @@ input {
   transition: all 0.3s ease;
 }
 
+input[type="number"] {
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
 input:focus {
   outline: none;
   border-color: #61dafb;
@@ -92,18 +93,22 @@ input:focus {
   box-shadow: 0 0 12px rgba(97, 218, 251, 0.6);
 }
 
-/* Botones */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
 button {
   background-color: #646cff;
   color: white;
   border: none;
   border-radius: 10px;
-  padding: 1em 1.5em;
+  padding: 1.2em 1.5em; /* Botón más grande para facilitar el toque */
   font-size: 1.3em;
   cursor: pointer;
   transition: all 0.3s ease;
   width: 100%;
-  margin-top: 2rem;
+  margin-top: 1.5rem;
 }
 
 button:hover {
@@ -116,17 +121,16 @@ button:active {
   transform: translateY(0);
 }
 
-/* Resultados */
 .resultados {
-  margin-top: 2.5rem;
+  margin-top: 2rem;
 }
 
 .resultado {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   color: #61dafb;
   font-weight: bold;
   margin: 1rem 0;
-  padding: 1.5rem;
+  padding: 1.2rem;
   border: 2px solid #61dafb;
   border-radius: 12px;
   background-color: #222;
@@ -140,31 +144,35 @@ button:active {
   box-shadow: 0 0 12px rgba(97, 218, 251, 0.5);
 }
 
-/* Mensaje especial cuando hay errores o divisiones por 0 */
 .resultado.error {
   color: #ff6961;
   border-color: #ff6961;
   background-color: #2a1a1a;
 }
 
-/* Media Queries para pantallas pequeñas */
 @media (max-width: 600px) {
   .calculadora-container {
-    padding: 2.5rem;
+    padding: 2rem;
     width: 100%;
+    max-width: 90%;
   }
 
   input, button {
     width: 100%;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
 
   h2 {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
 
   .resultado {
-    font-size: 1.4rem;
-    padding: 1.2rem;
+    font-size: 1.3rem;
+    padding: 1rem;
+  }
+
+  input {
+    font-size: 1.1rem;
+    padding: 0.8rem;
   }
 }
