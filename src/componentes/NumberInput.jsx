@@ -1,44 +1,29 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import Resultado from './Resultado';
-import { Operaciones } from '../helpers/Operaciones';
+import '../App.css';  
 
-const NumberInput = () => {
-    const [numeros, setNumeros] = useState({
-        numero1: 0,
-        numero2: 0
-    });
-
-    const { handleChange, suma, resta, division, multiplicacion, numero1, numero2 } = Operaciones(numeros, setNumeros);
-
-    return (
-        <>
-            <div>
-                <label htmlFor="numero1">
-                    Número 1:
-                    <input name="numero1" value={numero1} onChange={handleChange} type="number" />
-                </label>
-            </div>
-
-            <div>
-                <label htmlFor="numero2">
-                    Número 2:
-                    <input name="numero2" value={numero2} onChange={handleChange} type="number" />
-                </label>
-            </div>
-
-            <div>
-                <Resultado operacion="Suma" calculo={suma()} />
-                <Resultado operacion="Resta" calculo={resta()} />
-                <Resultado operacion="Multiplicación" calculo={multiplicacion()} />
-                <Resultado operacion="División" calculo={division()} />
-            </div>
-        </>
-    );
+const NumberInput = ({ label, name, value, handleChange }) => {
+  return (
+    <div className="number-input">
+      <label htmlFor={name}>
+        {label}
+        <input
+          type="number"
+          id={name}
+          name={name}
+          value={value}
+          onChange={handleChange}
+        />
+      </label>
+    </div>
+  );
 };
 
 NumberInput.propTypes = {
-    name: PropTypes.string
+  label: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  value: PropTypes.number.isRequired,
+  handleChange: PropTypes.func.isRequired,
 };
 
 export default NumberInput;
